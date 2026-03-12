@@ -15,7 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Soenneker.Libraries.SevenZip.Linux.csproj" />
+        <ProjectReference Include="..\..\src\Soenneker.Libraries.SevenZip.Linux\Soenneker.Libraries.SevenZip.Linux.csproj" />
     </ItemGroup>
 
     <ItemGroup>
