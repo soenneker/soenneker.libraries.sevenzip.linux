@@ -5,7 +5,7 @@
 
 # Soenneker.Libraries.SevenZip.Linux
 
-Adds the 7zip Linux executable, updated daily (if available).
+The standalone 7-Zip command-line executable packaged for Linux .NET applications.
 
 ## Install
 
@@ -13,11 +13,12 @@ Adds the 7zip Linux executable, updated daily (if available).
 dotnet add package Soenneker.Libraries.SevenZip.Linux
 ```
 
-## What it provides
+The package copies `7zzs` beneath the application output directory:
 
-- Adds the 7zip Linux executable, updated daily (if available).
-- The file is copied to the output directory, and located at the relative path: `Resources\`.
+```csharp
+string sevenZip = Path.Combine(AppContext.BaseDirectory, "Resources", "7zzs");
+```
 
-## How to use it
+Ensure `7zzs` is executable before starting it. Pass archive names, passwords, and output paths through `ProcessStartInfo.ArgumentList`; do not construct a shell command by concatenating them.
 
-After installation, resolve the packaged file from the output-relative path above. The package deploys the asset but does not invoke it for you.
+Always check the process exit code. When extracting untrusted archives, use a dedicated empty directory and enforce limits on archive size, extracted size, file count, and processing time before moving files into their final location.
